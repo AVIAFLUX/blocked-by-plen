@@ -1,5 +1,5 @@
 body {
-  /* Gradient background for visual interest */
+  /* Decorative gradient background for interest */
   background:
     radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.12) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.13) 0%, transparent 50%),
@@ -30,27 +30,28 @@ body {
   margin-right: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .side-text h1 {
   color: #ff6b6b;
   font-size: 2.2em;
-  margin: 0 0 20px 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0 0 18px 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
 .side-text p {
-  margin: 15px 0;
+  margin: 10px 0;
 }
 
 .small-text {
   font-size: 0.9em;
   color: #ccc;
   font-weight: normal;
+  margin-bottom: 8px;
 }
 
 .image-container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,23 +74,4 @@ body {
 
 .image-container img:hover {
   transform: scale(1.05);
-}
-
-.refresh-btn {
-  position: absolute;
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 8px 16px;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background 0.3s;
-}
-
-.refresh-btn:hover {
-  background: #555;
 }
