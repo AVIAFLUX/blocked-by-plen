@@ -1,12 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Meme</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 <body>
     <div class="content-row">
         <div class="side-text">
             This page is blocked,<br>
             why not look at some memes instead?
-            <div class="unblock-section">
-                <button id="unblockBtn" disabled>Unblock (wait 2:00)</button>
-                <div id="timer"></div>
-            </div>
         </div>
         <div class="image-container">
             <img id="memeImage" src="" alt="Random Meme">
@@ -37,32 +39,9 @@
             "plen/603af7e793b9a7f7526a9d9157d839f9.jpg",
             "plen/3465fad2fe711094f1590aad1cbef26e.jpg"
         ];
+        // Pick random image
         const randomIndex = Math.floor(Math.random() * images.length);
         document.getElementById('memeImage').src = images[randomIndex];
-
-        // Unblock button logic
-        const unblockBtn = document.getElementById('unblockBtn');
-        const timerDiv = document.getElementById('timer');
-        let seconds = 120;
-        function updateTimerDisplay() {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            unblockBtn.textContent = `Unblock (wait ${mins}:${secs.toString().padStart(2, '0')})`;
-        }
-        updateTimerDisplay();
-        const interval = setInterval(() => {
-            seconds--;
-            updateTimerDisplay();
-            if (seconds <= 0) {
-                clearInterval(interval);
-                unblockBtn.disabled = false;
-                unblockBtn.textContent = "Unblock";
-                timerDiv.textContent = "You may now access the site.";
-            }
-        }, 1000);
-
-        unblockBtn.addEventListener('click', function() {
-            window.location.href = "https://example.com"; // Replace this with your true redirect target!
-        });
     </script>
 </body>
+</html>
