@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Meme</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="content-row">
+        <div class="side-text">
+            This page is blocked,<br>
+            why not look at some memes instead?
+        </div>
+        <div class="image-container">
+            <img id="memeImage" src="" alt="Random Meme">
+        </div>
+    </div>
+    <script>
+        const images = [
+            "plen/633715366082773360uav.jpg",
+            "plen/afcd599221e65222fb9891dc21456a9090fe0346.png",
+            "plen/back-up-a-little.jpg",
+            "plen/best-just-to-leave-them.jpg",
+            "plen/cf2da5d76b20a926c0d97d918f50d1b8be7d5df9.jpg",
+            "plen/damn-instruction-manual.jpg",
+            "plen/f8d95e03392c1cd74b52e15dda1166c5.jpg",
+            "plen/FRWIJMeXwAUtB-e.jpg",
+            "plen/images.jpg",
+            "plen/it-followed-me-home.jpg",
+            "plen/military-humor-party-time-helicopter.jpg",
+            "plen/Screenshot 2025-04-30 171824 - Copy.png",
+            "plen/screwed.jpg",
+            "plen/this-is-why-we-cant-have-nice-things.jpg",
+            "plen/0ec60404782ae0c3d70b2dc76e48a5157bba937a.jpg",
+            "plen/1dd4214de0798eb8fc7204597a698b5ab291c42e.jpg",
+            "plen/2d667c568d231ea7f48ba1d1fbf2069c.jpg",
+            "plen/13b6a6d259fa68ba436c2bb50f5ceb52.jpg",
+            "plen/45edd3f398cb28bf72755f13ea74e345.jpg",
+            "plen/81d75a8c34650ebfa7666733590fbe1d.jpg",
+            "plen/603af7e793b9a7f7526a9d9157d839f9.jpg",
+            "plen/3465fad2fe711094f1590aad1cbef26e.jpg"
+        ];
+        // Pick random image
+        const randomIndex = Math.floor(Math.random() * images.length);
+        document.getElementById('memeImage').src = images[randomIndex];
+    </script>
+</body>
+</html>
