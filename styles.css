@@ -74,10 +74,7 @@ body {
     color: #ccc;
     font-weight: normal;
 }
-<div class="image-container">
-    <img id="memeImage" src="" alt="Random Meme">
-    <button id="refreshBtn" class="refresh-btn">New Meme</button>
-</div>
+
 .image-container {
     position: relative;
     display: flex;
@@ -106,4 +103,5 @@ body {
 .refresh-btn:hover {
     background: #555;
 }
+
 
