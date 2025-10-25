@@ -1,77 +1,174 @@
 body {
-  /* Decorative gradient background for interest */
-  background:
-    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.13) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(120, 200, 255, 0.10) 0%, transparent 50%),
-    black;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+            /* Decorative gradient background for interest */
+            background:
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.13) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 200, 255, 0.10) 0%, transparent 50%),
+                black;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-.content-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
+        .content-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
 
-.side-text {
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1.8em;
-  max-width: 350px;
-  text-align: left;
-  margin-right: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+        .side-text {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 1.8em;
+            max-width: 350px;
+            text-align: left;
+            margin-right: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.side-text h1 {
-  color: #ff6b6b;
-  font-size: 2.2em;
-  margin: 0 0 18px 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-}
+        .side-text h1 {
+            color: #ff6b6b;
+            font-size: 2.2em;
+            margin: 0 0 18px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
 
-.side-text p {
-  margin: 10px 0;
-}
+        .side-text p {
+            margin: 10px 0;
+        }
 
-.small-text {
-  font-size: 0.9em;
-  color: #ccc;
-  font-weight: normal;
-  margin-bottom: 8px;
-}
+        .small-text {
+            font-size: 0.9em;
+            color: #ccc;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
 
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: 400px;
-  background: black;
-}
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            width: 400px;
+            background: black;
+        }
 
-.image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  display: block;
-  background: black;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            background: black;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
 
-.image-container img:hover {
-  transform: scale(1.05);
-}
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Button Styling */
+        #refreshBtn {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        #refreshBtn button {
+            /* Base styling */
+            background-color: #3e68ff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(62, 104, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover effect */
+        #refreshBtn button:hover {
+            background-color: #2e54dd;
+            box-shadow: 0 6px 12px rgba(62, 104, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Active/click effect */
+        #refreshBtn button:active {
+            background-color: #2444bb;
+            box-shadow: 0 2px 4px rgba(62, 104, 255, 0.3);
+            transform: translateY(0);
+        }
+
+        /* Focus state for accessibility */
+        #refreshBtn button:focus-visible {
+            outline: 3px solid #3e68ff;
+            outline-offset: 3px;
+        }
+
+        /* Ripple effect on click */
+        #refreshBtn button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        #refreshBtn button:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .side-text {
+                margin-right: 0;
+                text-align: center;
+            }
+
+            .side-text h1 {
+                font-size: 2rem;
+            }
+
+            .side-text p {
+                font-size: 1rem;
+            }
+        }
