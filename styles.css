@@ -1,3 +1,10 @@
+/* Reset box sizing for more predictable sizing and spacing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   /* Decorative gradient background for interest */
   background:
@@ -6,72 +13,194 @@ body {
     radial-gradient(circle at 40% 80%, rgba(120, 200, 255, 0.10) 0%, transparent 50%),
     black;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh; /* allow content to grow without overflow issues */
   display: flex;
+  flex-direction: column; /* allow footer to sit at bottom */
   justify-content: center;
   align-items: center;
+  padding: 20px; /* slightly reduced padding */
+  font-size: 15px; /* slightly smaller overall scale */
+  line-height: 1.35;
 }
 
+/* Keep main content centered but let footer sit at the bottom */
 .content-row {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
+  align-items: flex-start; /* Changed from center to align with top */
+  width: 100%;
+  max-width: 1000px; /* reduced max width */
+  gap: 22px; /* reduced gap */
+  flex-wrap: wrap; /* allow stacking on smaller screens */
+  align-content: center;
+  padding: 18px; /* slightly reduced padding */
+  margin: auto 0; /* center vertically while allowing footer at bottom */
+  position: relative; /* Added for positioning context */
+  /* don't force full viewport height — let content determine height */
 }
 
 .side-text {
-  color: white;
+  color: rgba(255,255,255,0.95);
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 1.8em;
-  max-width: 350px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  max-width: 420px;
   text-align: left;
-  margin-right: 40px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .side-text h1 {
   color: #ff6b6b;
-  font-size: 2.2em;
-  margin: 0 0 18px 0;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-size: 2rem; /* increased from 1.6rem */
+  margin: 0 0 12px 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.45);
 }
 
 .side-text p {
-  margin: 10px 0;
+  margin: 8px 0;
+  font-size: 1.1rem; /* increased from 0.95rem */
 }
 
 .small-text {
-  font-size: 0.9em;
-  color: #ccc;
-  font-weight: normal;
-  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  font-weight: 400;
+  margin-bottom: 6px;
 }
 
 .image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
-  width: 400px;
+  width: min(380px, 45vw); /* slightly smaller */
+  aspect-ratio: 1/1; /* keep square layout */
   background: black;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
   background: black;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .image-container img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+#refreshBtn {
+    position: static;
+    margin-top: 20px;
+    margin-left: 0; /* Remove the margin */
+    width: fit-content; /* Make button container fit content */
+}
+
+#refreshBtn button {
+    /* Base styling - reduced size and visual weight */
+    background-color: #ff6b6b;
+    color: rgba(255,255,255,0.95);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px; /* smaller */
+    font-size: 14px; /* smaller */
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25); /* less colored shadow, less pop */
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover effect */
+#refreshBtn button:hover {
+    background-color: #ff5b5b;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.28);
+    transform: translateY(-1px);
+}
+
+/* Active/click effect */
+#refreshBtn button:active {
+    background-color: #e64b4b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.22);
+    transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+#refreshBtn button:focus-visible {
+    outline: 3px solid rgba(255,107,107,0.18);
+    outline-offset: 3px;
+}
+
+/* Ripple effect on click - scaled down */
+#refreshBtn button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    transform: translate(-50%, -50%);
+    transition: width 0.45s, height 0.45s;
+}
+
+#refreshBtn button:active::after {
+    width: 220px;
+    height: 220px;
+}
+
+/* Footer pinned to bottom, subtle white text */
+.footer {
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.75); /* white but not too strong */
+  font-size: 0.88rem; /* slightly smaller */
+  padding: 10px 0;
+  margin-top: auto; /* push to bottom */
+  font-family: 'Segoe UI', system-ui, sans-serif; /* specific font for footer */
+}
+
+/* Responsive adjustments */
+@media (max-width: 720px) {
+  .content-row {
+    flex-direction: column;
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .side-text {
+    text-align: center;
+    align-items: center;
+    max-width: 100%;
+    font-size: 1.3rem; /* increased from 1.05rem */
+  }
+
+  .side-text h1 {
+    font-size: 1.8rem; /* increased from 1.4rem */
+  }
+
+  .image-container {
+    width: min(300px, 90vw);
+    aspect-ratio: 1/1;
+  }
+
+  #refreshBtn {
+    width: 100%; /* Full width container on mobile */
+    display: flex;
+    justify-content: center; /* Center the button on mobile */
+  }
+
+  #refreshBtn button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
 }
